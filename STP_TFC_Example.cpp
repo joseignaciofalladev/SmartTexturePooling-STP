@@ -1,4 +1,3 @@
-// stp_tfc_example.cpp
 // Prototipo STP: Texture Function Code (TFC) runtime generator (C++17).
 // - Genera albedo, normal y roughness maps desde un descriptor compacto.
 // - Exporta PNGs usando stb_image_write (single-header).
@@ -297,4 +296,5 @@ int main(int argc, char** argv) {
 
     std::cout << "Done.\n";
     return 0;
+
 }
