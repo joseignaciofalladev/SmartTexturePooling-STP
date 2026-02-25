@@ -1,18 +1,16 @@
-"""
-STP Texture Function Code (TFC) example
-Archivo: T_Example.py
-Descripción: Ejemplo autocontenido de un 'Texture Function Code' que representa
-una textura procedimental generada por el motor (Smart Texture Pooling).
-El archivo incluye:
- - Estructura de descriptor (TextureDescriptor)
- - Un intérprete simple (TexNet-lite) que genera mapas: albedo, normal, roughness
- - Export a PNG for each map (requiere numpy + pillow)
+# STP Texture Function Code (TFC) example
+# Archivo: T_Example.py
+# Descripción: Ejemplo autocontenido de un 'Texture Function Code' que representa
+# una textura procedimental generada por el motor (Smart Texture Pooling).
+# El archivo incluye:
+# - Estructura de descriptor (TextureDescriptor)
+# - Un intérprete simple (TexNet-lite) que genera mapas: albedo, normal, roughness
+# - Export a PNG for each map (requiere numpy + pillow)
 
-Nota: Este script es un ejemplo educativo y prototipo. En un motor real el
-TFC sería mucho más compacto y la reconstrucción estaría optimizada
-(hardware/SIMD/SPU/GPU). Aquí se muestra la lógica completa para incluir
-en documentación técnica.
-"""
+# Nota: Este script es un ejemplo educativo y prototipo. En un motor real el
+# TFC sería mucho más compacto y la reconstrucción estaría optimizada
+# (hardware/SIMD/SPU/GPU). Aquí se muestra la lógica completa para incluir
+# en documentación técnica.
 
 import math
 import json
@@ -251,4 +249,5 @@ def example_usage(out_dir="stp_output"):
 
 
 if __name__ == '__main__':
+
     example_usage()
