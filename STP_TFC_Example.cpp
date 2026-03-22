@@ -22,7 +22,7 @@
 
 namespace fs = std::filesystem;
 
-// ------------------------- utilidades -------------------------
+// utilidades
 inline float clampf(float v, float a = 0.0f, float b = 1.0f) {
     return (v < a) ? a : (v > b) ? b : v;
 }
@@ -32,7 +32,7 @@ inline int to8(float v) { return static_cast<int>(clampf(v) * 255.0f + 0.5f); }
 inline float lerp(float a, float b, float t) { return a + (b - a) * t; }
 inline float fade(float t) { return t * t * t * (t * (t * 6 - 15) + 10); }
 
-// ------------------------- simple value-noise 2D -------------------------
+// simple value-noise 2D
 // grid-based value noise (simple, deterministic via seed)
 struct ValueNoise2D {
     int gridW, gridH;
@@ -96,7 +96,7 @@ static void fbm_fill(std::vector<float>& out, int W, int H, int octaves, float b
     for (auto &v : out) v = (v - minv) / range;
 }
 
-// ------------------------- Descriptor (TFC) -------------------------
+// Descriptor (TFC)
 struct TextureDescriptor {
     std::string name;            // id
     std::string type;            // p.ej. "masonry", "metal", "fabric"
@@ -114,7 +114,7 @@ struct TextureDescriptor {
         roughnessVar(0.2f), normalStrength(1.2f), resolution(512) {}
 };
 
-// ------------------------- TexNetLite (prototipo CPU) -------------------------
+// TexNetLite (prototipo CPU)
 class TexNetLite {
 public:
     TexNetLite(const TextureDescriptor& d) : desc(d) {
@@ -226,7 +226,7 @@ private:
     int W, H;
 };
 
-// ------------------------- PNG export helpers (stb_image_write) -------------------------
+// PNG export helpers (stb_image_write)
 static bool write_png_rgb(const std::string& path, int w, int h, const std::vector<uint8_t>& data) {
     // data size must be w*h*3
     return stbi_write_png(path.c_str(), w, h, 3, data.data(), w*3) != 0;
@@ -236,7 +236,7 @@ static bool write_png_gray(const std::string& path, int w, int h, const std::vec
     return stbi_write_png(path.c_str(), w, h, 1, data.data(), w) != 0;
 }
 
-// ------------------------- Example usage -------------------------
+// Example usage
 int main(int argc, char** argv) {
     TextureDescriptor desc;
     desc.name = "urban_brick_01";
