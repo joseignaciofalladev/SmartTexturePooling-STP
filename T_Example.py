@@ -21,18 +21,13 @@ from typing import Tuple
 import numpy as np
 from PIL import Image
 
-# -----------------------------
 # Utilities: simple noise funcs
-# -----------------------------
-
 def lerp(a, b, t):
     return a + (b - a) * t
-
 
 def fade(t):
     # 6t^5 - 15t^4 + 10t^3 (Perlin fade)
     return t * t * t * (t * (t * 6 - 15) + 10)
-
 
 def value_noise_2d(shape, scale=8.0, seed=0):
     """Genera ruido de valor 2D simple (no optimizado)."""
@@ -69,7 +64,6 @@ def value_noise_2d(shape, scale=8.0, seed=0):
             out[j, i] = lerp(a, b, sy)
     return out
 
-
 def fbm(shape, octaves=4, lacunarity=2.0, gain=0.5, scale=8.0, seed=0):
     """Fractional Brownian Motion based on value noise."""
     h, w = shape
@@ -85,11 +79,7 @@ def fbm(shape, octaves=4, lacunarity=2.0, gain=0.5, scale=8.0, seed=0):
     out = (out - out.min()) / (out.max() - out.min() + 1e-9)
     return out
 
-
-# -----------------------------
 # Texture Descriptor (TFC)
-# -----------------------------
-
 @dataclass
 class TextureDescriptor:
     name: str
