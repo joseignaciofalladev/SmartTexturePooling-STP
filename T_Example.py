@@ -96,11 +96,7 @@ class TextureDescriptor:
     def to_json(self):
         return json.dumps(asdict(self), indent=2)
 
-
-# -----------------------------
 # TexNet-lite: simple interpreter
-# -----------------------------
-
 class TexNetLite:
     """Intérprete muy simple que genera mapas a partir de TextureDescriptor.
     Está pensado para ilustrar el concepto STP: un motor puede almacenar
@@ -186,11 +182,7 @@ class TexNetLite:
         rough = self.generate_roughness()
         return albedo, normal, rough
 
-
-# -----------------------------
 # Example descriptor y export
-# -----------------------------
-
 def save_png(arr: np.ndarray, path: str):
     im = Image.fromarray(arr)
     im.save(path)
@@ -237,7 +229,5 @@ def example_usage(out_dir="stp_output"):
 
     print("Texturas generadas en:", out_dir)
 
-
 if __name__ == '__main__':
-
     example_usage()
